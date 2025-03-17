@@ -1,6 +1,9 @@
-package dev.java10x.CadastroDeNinjas;
+package dev.java10x.CadastroDeNinjas.Ninjas;
 
+import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 // Entity transforma uma classe em uma entidade do Banco de Dados
 // JPA - JAVA PERSISTENCE API
@@ -9,10 +12,11 @@ import jakarta.persistence.*;
 public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String nome;
-    int idade;
-    String email;
+    private Long id;
+    private String nome;
+    private int idade;
+    private String email;
+    private List<MissoesModel> missoes;
     // No args constructor
     public NinjaModel(){
 
