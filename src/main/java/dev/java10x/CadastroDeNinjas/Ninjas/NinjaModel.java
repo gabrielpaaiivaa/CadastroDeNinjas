@@ -22,6 +22,7 @@ public class NinjaModel {
     private Long id;
     private String nome;
     private int idade;
+    @Column(unique = true) // Nao permite que um usuario tenha o mesmo email de outro.
     private String email;
     // Uma missão pode ter varios ninjas, mas um ninja pode ter apenas uma missão por vez.
     @ManyToOne// Na classe ninja eu só vou ter uma unica missao
