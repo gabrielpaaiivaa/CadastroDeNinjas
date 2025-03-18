@@ -2,6 +2,9 @@ package dev.java10x.CadastroDeNinjas.Missoes;
 
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+
+import java.util.List;
+
 @Entity
 @Table(name = "tb_missoes")
 public class MissoesModel {
@@ -10,13 +13,15 @@ public class MissoesModel {
     private Long id;
     private String nome;
     private char dificuldade;
-    private NinjaModel ninja;
+    // No OneToMany eu tenho que mapear
+    @OneToMany(mappedBy = "missoes") // Uma missao para muitos ninjas.
+    private List<NinjaModel> ninjas;
 
-    public MissoesModel(Long id, String nomeMissao, char dificuldade, NinjaModel ninja) {
+    public MissoesModel(Long id, String nomeMissao, char dificuldade, List<NinjaModel> ninjas) {
         this.id = id;
         this.nome = nome;
         this.dificuldade = dificuldade;
-        this.ninja = ninja;
+        this.ninjas = ninjas;
     }
 
     public Long getId() {
@@ -43,11 +48,11 @@ public class MissoesModel {
         this.dificuldade = dificuldade;
     }
 
-    public NinjaModel getNinja() {
-        return ninja;
+    public List<NinjaModel> getNinjas() {
+        return ninjas;
     }
 
-    public void setNinja(NinjaModel ninja) {
-        this.ninja = ninja;
+    public void setNinjas(List<NinjaModel> ninjas) {
+        this.ninjas = ninjas;
     }
 }

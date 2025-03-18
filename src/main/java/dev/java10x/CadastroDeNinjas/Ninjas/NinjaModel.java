@@ -16,7 +16,12 @@ public class NinjaModel {
     private String nome;
     private int idade;
     private String email;
-    private List<MissoesModel> missoes;
+    // Uma missão pode ter varios ninhjas, mas um ninja pode ter apenas uma missão por vez.
+    @ManyToOne// Na classe ninja eu só vou ter uma unica missao
+
+    @JoinColumn(name = "missoes_id") // Foreing Key ou Chave Estrangeira
+    private MissoesModel missoes;
+
     // No args constructor
     public NinjaModel(){
 
