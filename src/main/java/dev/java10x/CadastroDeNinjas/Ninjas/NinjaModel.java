@@ -19,11 +19,16 @@ import java.util.List;
 public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "nome")
     private String nome;
+    @Column(name = "idade")
     private int idade;
     @Column(unique = true) // Nao permite que um usuario tenha o mesmo email de outro.
     private String email;
+    @Column(name = "img_url")
+    private String imgUrl;
     // Uma missão pode ter varios ninjas, mas um ninja pode ter apenas uma missão por vez.
     @ManyToOne// Na classe ninja eu só vou ter uma unica missao
 
