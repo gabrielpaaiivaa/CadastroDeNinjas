@@ -17,7 +17,7 @@ public class MissoesModel {
     @OneToMany(mappedBy = "missoes") // Uma missao para muitos ninjas.
     private List<NinjaModel> ninjas;
 
-    public MissoesModel(Long id, String nomeMissao, char dificuldade, List<NinjaModel> ninjas) {
+    public MissoesModel(Long id, String nome, char dificuldade, List<NinjaModel> ninjas) {
         this.id = id;
         this.nome = nome;
         this.dificuldade = dificuldade;
