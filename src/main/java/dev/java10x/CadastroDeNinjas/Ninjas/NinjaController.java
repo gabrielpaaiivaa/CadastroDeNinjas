@@ -4,12 +4,8 @@ import org.springframework.web.bind.annotation.*;
 // CONTROLLER É A CAMADA MAIS PROXIMA DO USUARIO
 
 @RestController
-@RequestMapping
+@RequestMapping("/ninjas")
 public class NinjaController {
-    @GetMapping ("/boasVindas") // Serve para mostrar
-    public String boasVindas(){
-        return "Essa é minha primeira mensagem nessa rota.";
-    }
     // Fazer um CRUD (CREATE, READ, UPDATE, DELETE)
 
     // Adicionar Ninja /Create
