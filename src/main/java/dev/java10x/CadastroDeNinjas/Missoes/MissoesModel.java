@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
 
@@ -15,6 +16,7 @@ public class MissoesModel {
     private char dificuldade;
     // No OneToMany eu tenho que mapear
     @OneToMany(mappedBy = "missoes") // Uma missao para muitos ninjas.
+    @JsonIgnore
     private List<NinjaModel> ninjas;
 
     public MissoesModel(Long id, String nome, char dificuldade, List<NinjaModel> ninjas) {
@@ -22,6 +24,9 @@ public class MissoesModel {
         this.nome = nome;
         this.dificuldade = dificuldade;
         this.ninjas = ninjas;
+    }
+
+    public MissoesModel() {
     }
 
     public Long getId() {
