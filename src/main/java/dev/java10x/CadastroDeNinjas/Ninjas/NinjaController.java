@@ -33,15 +33,14 @@ public class NinjaController {
     public List<NinjaModel> listarNinjas() {
         return ninjaService.listarNinjas();
     }
-    // Alterar dados dos ninjas / Update
-    @PutMapping("/alterar") // Faz a alteracao
-    public String alterarNinjaPorId(){
-        return "Alterar ninja por ID";
-    }
-
     // Deletar Ninja / Delete
     @DeleteMapping("/deletar/{id}")
     public void deletarNinjaPorId(@PathVariable Long id){
         ninjaService.deletarNinjaPorId(id);
+    }
+    // Alterar dados
+    @PutMapping("/alterar/{id}") // Faz a alteracao
+    public NinjaModel alterarNinjaPorId(@PathVariable Long id, @RequestBody NinjaModel ninjaAtualizado){
+        return ninjaService.atualizarNinja(id, ninjaAtualizado);
     }
 }
